@@ -1,10 +1,9 @@
 import * as React from 'react';
 
-export default class Login extends React.Component{
-
-  render() {
+const Login: React.FC<any> = ({}) =>{
     return (
       <h2>Login</h2>
     );
-  }
 }
+
+export default Login;

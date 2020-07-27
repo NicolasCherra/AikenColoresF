@@ -1,30 +1,44 @@
 import {BrowserRouter as Router, Route,Link,Switch} from 'react-router-dom';
-import * as React from 'react';
+import React from 'react';
 import axios from 'axios';
 axios.defaults.withCredentials = true;
 
+//Material
+import {Button} from '@material-ui/core';
+import { ThemeProvider } from '@material-ui/core/styles';
+import Tema from './layout/Tema';
 //Componentes
-import Header from './Header';
-import Footer from './Footer';
-import Home from './Home';
-import Login from './Login';
-import Registro from './Registro';
-////////////////////
-export class App extends React.Component{
+import Header from './layout/Header';
+import Footer from './layout/Footer';
+import Inicio from './pages/Inicio';
+import Login from './pages/Login';
+import Registro from './pages/Registro';
+import NavBar from './layout/NavBar';
+import Menu from './layout/Menu';
+import { useState } from 'react';
 
-  render() {
+//////////////////// 
+//           
+const App:React.FC = () => {
+
     return (
       <React.Fragment>
-      <Header/>
-        <Router>
-          <Switch>
-            <Route  exact path="/"      component={Home}></Route>
-            <Route  exact path="/entrar" component={Login}></Route>
-            <Route  exact path="/registrarse" component={Registro}></Route>
-          </Switch>
-        </Router>
-      <Footer/>
+        <ThemeProvider theme={Tema}>
+          <Header/>
+          <Menu />
+
+            <Router>
+              <Switch>
+                <Route  exact path="/"      component={Inicio}></Route>
+                <Route  exact path="/entrar" component={Login}></Route>
+                <Route  exact path="/registrarse" component={Registro}></Route>
+              </Switch>
+            </Router>
+          
+          <Footer />
+          
+        </ThemeProvider>
       </React.Fragment>
     );
-  }
 }
+export default App;
