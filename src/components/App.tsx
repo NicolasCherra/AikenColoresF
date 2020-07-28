@@ -1,24 +1,24 @@
-import {BrowserRouter as Router, Route,Link,Switch} from 'react-router-dom';
-import React from 'react';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import * as React from 'react';
 import axios from 'axios';
-axios.defaults.withCredentials = true;
 
-//Material
+
 import {Button} from '@material-ui/core';
 import { ThemeProvider } from '@material-ui/core/styles';
+
 import Tema from './layout/Tema';
-//Componentes
 import Header from './layout/Header';
 import Footer from './layout/Footer';
+import Menu from './layout/Menu';
+import NavBar from './layout/NavBar';
+
 import Inicio from './pages/Inicio';
 import Login from './pages/Login';
 import Registro from './pages/Registro';
-import NavBar from './layout/NavBar';
-import Menu from './layout/Menu';
-import { useState } from 'react';
+import Articulo from './pages/Articulo';
 
-//////////////////// 
-//           
+axios.defaults.withCredentials = true;
+
 const App:React.FC = () => {
 
     return (
@@ -28,7 +28,8 @@ const App:React.FC = () => {
           <Menu />
 
             <Router>
-              <Switch>
+            <Switch>
+                <Route  exact path="/articulo/:id"      component={Articulo}></Route>
                 <Route  exact path="/"      component={Inicio}></Route>
                 <Route  exact path="/entrar" component={Login}></Route>
                 <Route  exact path="/registrarse" component={Registro}></Route>
@@ -36,7 +37,6 @@ const App:React.FC = () => {
             </Router>
           
           <Footer />
-          
         </ThemeProvider>
       </React.Fragment>
     );

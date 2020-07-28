@@ -1,4 +1,5 @@
 import * as React from 'react';
+//import {urlF,urlB} from '../Url'; 
 import {
   List,
   ListItem,
@@ -18,11 +19,19 @@ const estilos = makeStyles(theme => ({
 
 const Menu: React.FC<any> = ({ }) => {
 
+  const home = () => {
+    window.location.href ="/";
+  }
+
+  const catalogo = () => {
+    window.location.href ="/catalogo";
+  }
+
   const classes = estilos();
   return (
     <div className={classes.root}>
         <List>
-          <ListItem button   color="primary">
+        <ListItem button onClick={home}  color="primary">
             <ListItemIcon>
               <HomeIcon color="primary"/>
               <ListItemText primary="Inicio" color="secundary" />
@@ -31,7 +40,7 @@ const Menu: React.FC<any> = ({ }) => {
 
           <Divider/>
           
-          <ListItem button>
+          <ListItem button onClick={catalogo} >
             <ListItemIcon>
               <InsertPhotoIcon />
               <ListItemText primary="Catalogo" />

@@ -35,7 +35,10 @@ const Inicio: React.FC<any> = ({}) =>{
   }
     return (
       <React.Fragment>
-        <h2 className={classes.pos}>Nuestro Trabajo</h2>
+        <Typography className={classes.pos} variant="h6" >
+          Nuestro Trabajo
+        </Typography>
+
         <Grid container
             direction="row"
             justify="center"

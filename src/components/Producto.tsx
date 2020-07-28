@@ -36,7 +36,7 @@ interface Props {
 
 const Producto: React.FC<Props> = ({nombreProducto,imagen,id}) =>{
   const classes = useStyles();
-  
+  const art = "articulo/"+id;
 
   return (
     <React.Fragment>
@@ -53,7 +53,7 @@ const Producto: React.FC<Props> = ({nombreProducto,imagen,id}) =>{
                 <Button size="small" variant="contained" color="secondary"  className={classes.bS} >
                   Descripcion
                 </Button>
-                <Button size="small" variant="contained" color="primary"  className={classes.bP}>
+                <Button size="small" variant="contained" color="primary" href={art} className={classes.bP}>
                     Hacer Pedido
                 </Button>
               </CardActions>

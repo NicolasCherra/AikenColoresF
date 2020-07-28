@@ -19,12 +19,8 @@ module.exports={
                 loader: 'awesome-typescript-loader'
             },
             {
-                test: /\.scss$/,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    'css-loader',
-                    'sass-loader'
-                ]
+                test: /\.css$/i,
+                use: ['style-loader', 'css-loader'] 
             },
             {
                 enforce: 'pre',

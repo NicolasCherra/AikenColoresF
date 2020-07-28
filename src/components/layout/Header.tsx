@@ -20,10 +20,12 @@ const estilos = makeStyles(theme => ({
     width: 500
   },
   cuenta: {
-    marginLeft: 200
+    position: "absolute",
+    left: "70%"
   },
   carrito: {
-    marginLeft: 100
+    position: "absolute",
+    left: "80%"
   }
 }));
 
@@ -33,7 +35,7 @@ const Header: React.FC<any> = ({}) =>{
   return (
     <React.Fragment>
   
-      <img   className={classes.logo} src={"imagenes/logo.png"} />
+      <img   className={classes.logo} src={"/imagenes/logo.png"} />
       <input className={classes.buscador} type="search"></input>
       <Button className={classes.cuenta} startIcon={<AccountCircleIcon />} >Cuenta</Button>
       <Button className={classes.carrito} startIcon={<ShoppingCartIcon/>} >Carrito</Button>
