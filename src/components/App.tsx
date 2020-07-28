@@ -3,7 +3,7 @@ import * as React from 'react';
 import axios from 'axios';
 
 
-import {Button} from '@material-ui/core';
+import {Button, Hidden,makeStyles} from '@material-ui/core';
 import { ThemeProvider } from '@material-ui/core/styles';
 
 import Tema from './layout/Tema';
@@ -19,14 +19,34 @@ import Articulo from './pages/Articulo';
 
 axios.defaults.withCredentials = true;
 
+const useStyle = makeStyles({
+  m: {
+    [Tema.breakpoints.down('sm')]: {
+      marginTop:"30em"
+    }
+  }
+  
+});
+
+
 const App:React.FC = () => {
 
+  const classes = useStyle();
+  var movil:boolean;
     return (
       <React.Fragment>
         <ThemeProvider theme={Tema}>
-          <Header/>
-          <Menu />
 
+          <Hidden mdUp>
+            <NavBar/>
+          </Hidden>
+            
+          <Hidden smDown>
+            <Header/>
+            <Menu />
+          </Hidden>
+
+          <main className={classes.m}>
             <Router>
             <Switch>
                 <Route  exact path="/articulo/:id"      component={Articulo}></Route>
@@ -35,7 +55,7 @@ const App:React.FC = () => {
                 <Route  exact path="/registrarse" component={Registro}></Route>
               </Switch>
             </Router>
-          
+            </main>
           <Footer />
         </ThemeProvider>
       </React.Fragment>

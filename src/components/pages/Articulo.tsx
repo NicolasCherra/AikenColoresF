@@ -1,19 +1,25 @@
 import * as React from 'react';
-import Producto from '../Producto';
 import { useParams } from "react-router";
 import { makeStyles, Box, Typography } from '@material-ui/core';
-interface Props{
-  id: number;
-}
+
+import Producto from '../Producto';
+import Tema from '../layout/Tema';
 
 const useStyles = makeStyles({
   caja: {
     position: "relative",
     left: "40%",
-    bottom: "15em"
+    bottom: "15em",
+    width: 300,
+    [Tema.breakpoints.down('sm')]: {
+      position: "relative",
+      left: "10em",
+    }
   }
 });
-
+interface Props{
+  id: number;
+}
 const Articulo: React.FC<Props>=({})=>{
   
   let { id } = useParams();

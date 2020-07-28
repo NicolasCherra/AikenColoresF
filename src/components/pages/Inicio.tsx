@@ -11,15 +11,16 @@ axios.defaults.withCredentials = true;
 
 const useStyles = makeStyles({
   grid: {
-    marginLeft: 180,
-    marginTop: -300,
-    width: 1100,
-    border: 2
+    marginTop: "10em",
+    position: "relative",
+    bottom: "10em",
+    width: 1000,
+    left: "20%"
   },
   pos: {
     position: "relative",
-    top: -320,
-    left: "50%"
+    marginTop: "-15em",
+    left: "30%"
   }
 });
 
@@ -35,7 +36,7 @@ const Inicio: React.FC<any> = ({}) =>{
   }
     return (
       <React.Fragment>
-        <Typography className={classes.pos} variant="h6" >
+        <Typography className={classes.pos}variant="h6" >
           Nuestro Trabajo
         </Typography>
 
@@ -45,7 +46,7 @@ const Inicio: React.FC<any> = ({}) =>{
             alignItems="center"
           className={classes.grid}
           spacing={3}
-        >          
+        >
             {productos}
         </Grid>
       </React.Fragment>
