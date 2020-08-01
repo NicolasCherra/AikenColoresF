@@ -31,13 +31,17 @@ const estilos = makeStyles(theme => ({
 
 const Header: React.FC<any> = ({}) =>{
 
+  const login = () => {
+    window.location.href ="/entrar";
+  }
+  
   const classes = estilos();
   return (
     <React.Fragment>
   
       <img   className={classes.logo} src={"/imagenes/logo.png"} />
       <input className={classes.buscador} type="search"></input>
-      <Button className={classes.cuenta} startIcon={<AccountCircleIcon />} >Cuenta</Button>
+      <Button onClick={login} className={classes.cuenta} startIcon={<AccountCircleIcon />} >Cuenta</Button>
       <Button className={classes.carrito} startIcon={<ShoppingCartIcon/>} >Carrito</Button>
     </React.Fragment>
     );

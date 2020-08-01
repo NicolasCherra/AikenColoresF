@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import * as React from 'react';
 import axios from 'axios';
-
-
+import {Provider} from 'react-redux';
+import generateStore from '../redux/Store';
 import {Button, Hidden,makeStyles} from '@material-ui/core';
 import { ThemeProvider } from '@material-ui/core/styles';
 
@@ -29,12 +29,12 @@ const useStyle = makeStyles({
 });
 
 
-const App:React.FC = () => {
-
+const App: React.FC = () => {
+  const store = generateStore();
   const classes = useStyle();
-  var movil:boolean;
     return (
       <React.Fragment>
+        <Provider store={store}>
         <ThemeProvider theme={Tema}>
 
           <Hidden mdUp>
@@ -48,7 +48,7 @@ const App:React.FC = () => {
 
           <main className={classes.m}>
             <Router>
-            <Switch>
+            <Switch>              
                 <Route  exact path="/articulo/:id"      component={Articulo}></Route>
                 <Route  exact path="/"      component={Inicio}></Route>
                 <Route  exact path="/entrar" component={Login}></Route>
@@ -57,7 +57,8 @@ const App:React.FC = () => {
             </Router>
             </main>
           <Footer />
-        </ThemeProvider>
+          </ThemeProvider>
+        </Provider>
       </React.Fragment>
     );
 }

@@ -5,10 +5,16 @@ import {
 } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core';
+import Tema from './layout/Tema';
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 350
+    maxWidth: 350,
+    [Tema.breakpoints.down('sm')]: {
+      
+      maxWidth: 300
+    }
+
   },
   media: {
     height: 250,

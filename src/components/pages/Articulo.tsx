@@ -12,8 +12,7 @@ const useStyles = makeStyles({
     bottom: "15em",
     width: 300,
     [Tema.breakpoints.down('sm')]: {
-      position: "relative",
-      left: "10em",
+      left: "2em",
     }
   }
 });
