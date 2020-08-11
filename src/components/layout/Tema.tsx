@@ -8,7 +8,6 @@ declare module '@material-ui/core/styles/createMuiTheme' {
   }
 }
 
-
 const Tema = createMuiTheme({
   palette: {
     primary: {
@@ -25,6 +24,4 @@ const Tema = createMuiTheme({
     },
   }
 });
-
-
 export default Tema;

@@ -1,5 +1,4 @@
 import * as React from 'react';
-//import {urlF,urlB} from '../Url'; 
 import {
   List,
   ListItem,
@@ -9,25 +8,16 @@ import {
 } from '@material-ui/core';
 import HomeIcon from '@material-ui/icons/Home';
 import InsertPhotoIcon from '@material-ui/icons/InsertPhoto';
-import { makeStyles } from '@material-ui/core';
-
-const estilos = makeStyles(theme => ({
-    root: {
-      display: 'flex'
-    }
-}));
+import useStyle from '../Styles';
 
 const Menu: React.FC<any> = ({ }) => {
-
   const home = () => {
     window.location.href ="/";
   }
-
   const catalogo = () => {
     window.location.href ="/catalogo";
   }
-
-  const classes = estilos();
+  const classes = useStyle();
   return (
     <div className={classes.root}>
         <List>

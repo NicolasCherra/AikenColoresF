@@ -1,33 +1,16 @@
 import * as React from 'react';
-
 import { AppBar, Toolbar, Typography, makeStyles,Drawer } from '@material-ui/core';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import * as theme from './Tema';
-
+import useStyle from '../Styles';
 import Menu from './Menu';
-
-
-const drawerWidth = 240;
-const useStyles = makeStyles((theme) => ({
-  drawerPaper: {
-    width: drawerWidth,
-  },
-  menu: {
-    color: "#fff"
-  }
-}));
   
-
-
 const NavBar: React.FC<any> = ({}) =>{
-  const classes = useStyles();
+  const classes = useStyle();
   const [drawerOpen, setdrawerOpen] = React.useState(false);
-
   const mostrarDrawer = () => {
     setdrawerOpen(!drawerOpen);
   }
-
   return (
       <div >
       <AppBar position="fixed" color="primary" >

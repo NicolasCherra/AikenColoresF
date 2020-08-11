@@ -1,31 +1,17 @@
 import * as React from 'react';
 import { useParams } from "react-router";
 import { makeStyles, Box, Typography } from '@material-ui/core';
+import Producto from '../artifact/Producto';
+import useStyle from '../Styles';
 
-import Producto from '../Producto';
-import Tema from '../layout/Tema';
-
-const useStyles = makeStyles({
-  caja: {
-    position: "relative",
-    left: "40%",
-    bottom: "15em",
-    width: 300,
-    [Tema.breakpoints.down('sm')]: {
-      left: "2em",
-    }
-  }
-});
 interface Props{
   id: number;
 }
-const Articulo: React.FC<Props>=({})=>{
-  
+
+const Articulo: React.FC<Props>=({})=>{  
   let { id } = useParams();
   let img = "/imagenes/" + id + ".jpg";
-
-  const classes = useStyles();
-
+  const classes = useStyle();
   return (
     <Box className={classes.caja}>
       <img src={img} /> 
@@ -38,5 +24,4 @@ const Articulo: React.FC<Props>=({})=>{
     </Box>
   );
 }
-
 export default Articulo;
