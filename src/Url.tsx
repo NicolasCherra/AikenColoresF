@@ -1,0 +1,1 @@
+export const URL_BACKEND_GO = "https://aiken-colores-backend.herokuapp.com";

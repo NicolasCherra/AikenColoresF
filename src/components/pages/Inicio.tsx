@@ -4,18 +4,10 @@ import {
   Grid, Box,Card,CardHeader,CardMedia,CardContent,CardActions,CardActionArea,Typography,Button,makeStyles
 } from '@material-ui/core';
 import { useDispatch, useSelector, DefaultRootState } from 'react-redux';
-
 import { getSouvenirs } from '../../redux/Ducks';
 import { ProductosRD, ProductoRD, IStateRedux } from '../../redux/types';
-
 import Producto from '../Producto';
-
 import Tema from '../layout/Tema';
-
-axios.defaults.withCredentials = true;
-
-
-
 
 const useStyles = makeStyles({
   grid: {
@@ -36,49 +28,66 @@ const useStyles = makeStyles({
   }
 });
 
-const Inicio: React.FC<any> = ({}) =>{
+const Inicio: React.FC<any> = ({ }) => {
+  let [products, setProducts] = React.useState<Array<ProductoRD>>([]);
+  let [cargo, setCargo] = React.useState(0);
+  
+  const classes = useStyles();
   const dispatch = useDispatch();
 
   const traer = () => {
-    console.log("Activado")
+    console.log("Activado");
     dispatch(getSouvenirs());
-    console.log("SOUVENIR OBJC", souvenirsObj);
+  }
+
+  let souvenirsObj = useSelector((store: any) => store.productos.souvenirs[0]);
+
+  let cargando = <Typography className={classes.pos}variant="h6" >Cargando</Typography>;
+
+  const pasar = () => {
+    console.log("pasar")        
+    if (souvenirsObj != undefined || souvenirsObj != null) {      
+      let array:Array<ProductoRD> = Object.values(souvenirsObj);
+      setProducts(array);
+      console.log("Porducts",products);
+    } else {
+      console.log("vino mal")
+      setTimeout(setCargo, 3000, cargo + 1);
+    }
+  }
+
+  React.useEffect(() => {
+    traer(); // para mejor permormance hacer thunk
+    pasar();
+  }, [cargo]);
+
+  let productsHTML = [];
+  console.log("hoal carlos")
+  for (var i = 0; i < products.length; i++){
+    productsHTML.push(<Grid item xs={12} sm={12} md={6} lg={3}><Producto nombreProducto ={products[i].nombre} imagen={products[i].imagenProducto} id={i} /></Grid>)
   }
   
-  const souvenirsObj = useSelector((store:IStateRedux) => store.productos.souvenirs);
-
-  
-  
-  const nombreP = ["Uno", "dos", "tres", "Llavero", "abeja", "lala", "7", "8"];
-  const urlImg = ["imagenes/0.jpg","imagenes/1.jpg","imagenes/2.jpg","imagenes/3.jpg","imagenes/4.jpg","imagenes/5.jpg","imagenes/6.jpg","imagenes/7.jpg"];
-  
-  const classes = useStyles();
-
-  const maxProductos = 8;
-  let productos = [];
-  let suovenirsHTML:any = [];
-
-  for (var i = 0; i <maxProductos; i++) {
-    productos.push(<Grid item xs={12} sm={12} md={6} lg={3}><Producto nombreProducto ={nombreP[i]} imagen={urlImg[i]} id={i} /></Grid>);
-  }
-  
-
-    return (
-      <React.Fragment>
-        <Button onClick={traer}>Traer</Button>
-        <Typography className={classes.pos}variant="h6" >
-          Nuestro Trabajo
-        </Typography>
-        <Grid container
-            direction="row"
-            justify="center"
-            alignItems="center"
-          className={classes.grid}
-          spacing={3}
-        >
-            {productos}
-        </Grid>
-      </React.Fragment>
-    );
+  return (
+    <React.Fragment>
+      <Typography className={classes.pos}variant="h6" >
+        Nuestro Trabajo
+      </Typography>
+      <Grid container
+          direction="row"
+          justify="center"
+          alignItems="center"
+        className={classes.grid}
+        spacing={3}
+      >
+        {
+          productsHTML.length>0
+            ?
+            productsHTML
+            :
+            cargando
+        }
+      </Grid>
+    </React.Fragment>
+  );
 }
 export default Inicio;

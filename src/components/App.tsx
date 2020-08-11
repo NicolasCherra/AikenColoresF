@@ -5,19 +5,15 @@ import {Provider} from 'react-redux';
 import generateStore from '../redux/Store';
 import {Button, Hidden,makeStyles} from '@material-ui/core';
 import { ThemeProvider } from '@material-ui/core/styles';
-
 import Tema from './layout/Tema';
 import Header from './layout/Header';
 import Footer from './layout/Footer';
 import Menu from './layout/Menu';
 import NavBar from './layout/NavBar';
-
 import Inicio from './pages/Inicio';
 import Login from './pages/Login';
 import Registro from './pages/Registro';
 import Articulo from './pages/Articulo';
-
-axios.defaults.withCredentials = true;
 
 const useStyle = makeStyles({
   m: {
@@ -27,7 +23,6 @@ const useStyle = makeStyles({
   }
   
 });
-
 
 const App: React.FC = () => {
   const store = generateStore();

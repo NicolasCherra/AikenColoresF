@@ -42,7 +42,7 @@ interface Props {
 
 const Producto: React.FC<Props> = ({nombreProducto,imagen,id}) =>{
   const classes = useStyles();
-  const art = "articulo/"+id;
+  const art = "articulo/"+id; // contulta
 
   return (
     <React.Fragment>
@@ -50,7 +50,7 @@ const Producto: React.FC<Props> = ({nombreProducto,imagen,id}) =>{
               <CardActionArea>
                 <CardMedia
                   className={classes.media}
-                  image={imagen}
+                  image={"data:image/jpeg;base64,"+imagen}
                   
                 />
 

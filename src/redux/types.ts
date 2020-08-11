@@ -1,23 +1,21 @@
 export interface IStateRedux{
-  productos: {
-    souvenirs: ProductoRD[]
-  }
+  productos: ProductosRD
 }
 
 
 export const GET_SOUVENIRS_EXITO = "GET_SOUVENIRS_EXITO";
+export const START_FETCH = "START_FETCH";
 export interface ProductoRD{
-  id: number
+  _id: string
   nombre: string
   categoria: string
   descripcion: string
-  imagen: string
-  precio: number
+  imagenProducto: string
+  precio: string
   stock: number
   fecha: string
 }
 export interface ProductosRD{
-  
   souvenirs: ProductoRD[]
 }
 interface SouvenirGetAction {
@@ -25,5 +23,10 @@ interface SouvenirGetAction {
   payload: ProductoRD
 }
 
-export type  SouvenirActionTypes = SouvenirGetAction;
+interface SouvenirStartGetAction {
+  type: typeof START_FETCH
+  payload: ProductoRD
+}
+
+export type  SouvenirActionTypes = SouvenirGetAction | SouvenirStartGetAction;
 
