@@ -21,31 +21,32 @@ const App: React.FC = () => {
   const classes = useStyle();
     return (
       <React.Fragment>
-        <Provider store={store}>
-        <ThemeProvider theme={Tema}>
-            
-          <Hidden mdUp>
-            <NavBar/>
-          </Hidden>
-            
-          <Hidden smDown>
-            <Header/>
-            <Menu />
-          </Hidden>
+      <Provider store={store}>
+      <ThemeProvider theme={Tema}>
+          
+        <Hidden mdUp>
+          <NavBar/>
+        </Hidden>
+          
+        <Hidden smDown>
+          <Header/>
+          <Menu />
+        </Hidden>
 
-          <main className={classes.m}>
-            <Router>
-            <Switch>              
-                <Route  exact path="/articulo/:id"      component={Articulo}></Route>
-                <Route  exact path="/"                  component={Inicio}></Route>
-                <Route  exact path="/entrar"            component={Login}></Route>
-                <Route  exact path="/registrarse"       component={Registro}></Route>
-              </Switch>
-            </Router>
-            </main>
-          <Footer />
-          </ThemeProvider>
-        </Provider>
+        <main className={classes.Main}>
+          <Router>
+          <Switch>              
+              <Route  exact path="/articulo/:id"      component={Articulo}></Route>
+              <Route  exact path="/"                  component={Inicio}></Route>
+              <Route  exact path="/entrar"            component={Login}></Route>
+              <Route  exact path="/registrarse"       component={Registro}></Route>
+          </Switch>
+              </Router>          
+        </main>
+      
+      <Footer />  
+      </ThemeProvider>
+      </Provider>
       </React.Fragment>
     );
 }

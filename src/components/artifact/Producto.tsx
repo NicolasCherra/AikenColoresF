@@ -1,71 +1,43 @@
 import React from 'react';
-import axios from 'axios';
 import {
   Grid, Box,Card,CardHeader,CardMedia,CardContent,CardActions,CardActionArea, Typography
 } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core';
-import Tema from '../layout/Tema';
+import useStyle from '../Styles';
 
-const useStyles = makeStyles({
-  root: {
-    maxWidth: 350,
-    [Tema.breakpoints.down('sm')]: {
-      
-      maxWidth: 300
-    }
-
-  },
-  media: {
-    height: 250,
-  },
-  dp: {
-    display: 'flex',
-    flexDirection: "column",
-    justifyContent: "space-between",
-    flexWrap: "wrap"
-  },
-  bP: {
-   marginTop: 10
-  },
-  bS: {
-    marginTop: 10
-   }
-
-});
 interface Props {
   nombreProducto: string;
   imagen: string;
-  id: number;
+  _id: string;
 }
-
-
-const Producto: React.FC<Props> = ({nombreProducto,imagen,id}) =>{
-  const classes = useStyles();
-  const art = "articulo/"+id; // contulta
-
+const Producto: React.FC<Props> = ({nombreProducto,imagen,_id}) =>{
+  const classes = useStyle();
+  const art = "articulo/"+_id;
   return (
-    <React.Fragment>
-      <Card className={classes.root}>
-              <CardActionArea>
-                <CardMedia
-                  className={classes.media}
-                  image={"data:image/jpeg;base64,"+imagen}
-                  
-                />
+    <Card className={classes.producto}>
 
-              </CardActionArea>
-              <CardActions className={classes.dp}  >
-                <Button size="small" variant="contained" color="secondary"  className={classes.bS} >
-                  Descripcion
-                </Button>
-                <Button size="small" variant="contained" color="primary" href={art} className={classes.bP}>
-                    Hacer Pedido
-                </Button>
-              </CardActions>
-            </Card>
-    </React.Fragment>
+      <CardActionArea>
+
+        <CardMedia
+          className={classes.productoImagen}
+          image={"data:image/jpeg;base64,"+imagen}                  
+        />
+
+      </CardActionArea>
+      
+      <CardActions className={classes.productoContenedorBotones}>
+        
+        <Button size="small" variant="contained" color="secondary" className={classes.productosBotonSecundario} >
+          Descripcion
+        </Button>
+        <Button size="small" variant="contained" color="primary" href={art} className={classes.productosBotonPrimario}>
+          Hacer Pedido
+        </Button>
+
+      </CardActions>
+
+    </Card>
   );
-};
-
+}
 export default Producto;

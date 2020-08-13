@@ -19,7 +19,7 @@ const Menu: React.FC<any> = ({ }) => {
   }
   const classes = useStyle();
   return (
-    <div className={classes.root}>
+    <div className={classes.Menu}>
         <List>
         <ListItem button onClick={home}  color="primary">
             <ListItemIcon>
@@ -59,5 +59,4 @@ const Menu: React.FC<any> = ({ }) => {
       </div>
     );
 }
-
 export default Menu;

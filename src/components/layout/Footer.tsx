@@ -1,12 +1,13 @@
 import * as React from 'react';
+import useStyle from '../Styles';
 
 const Footer: React.FC<any> = ({}) =>{
+  const classes = useStyle();
 
-  
     return (
-      <h2></h2>
+      <footer className={classes.Footer} >
+        footer
+      </footer>
     );
-  
 }
-
 export default Footer;
