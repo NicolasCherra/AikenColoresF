@@ -54,7 +54,7 @@ const useStyle = makeStyles({
     position: "absolute",
     height:"11em",
     top: "0%",
-    width: "-webkit-fill-available",
+    width: "100%",
     backgroundColor: "#f0f7"
   },
   headerLogo: { 
