@@ -8,21 +8,31 @@ import Menu from './Menu';
 const NavBar: React.FC<any> = ({}) =>{
   const classes = useStyle();
   const [drawerOpen, setdrawerOpen] = React.useState(false);
+
   const mostrarDrawer = () => {
     setdrawerOpen(!drawerOpen);
   }
+
   return (
-      <div >
-      <AppBar position="fixed" color="primary" >
+    <div >
+
+      <AppBar position="fixed" color="secondary" >
+
         <Toolbar >
+
           <IconButton
             aria-label="open drawer"
             edge="start"
             onClick={mostrarDrawer}
-            className={classes.menu}>
+            className={classes.menu}
+          >
+
             <MenuIcon />
+
           </IconButton> 
+
         </Toolbar>
+
       </AppBar>
 
       <Drawer
@@ -36,11 +46,13 @@ const NavBar: React.FC<any> = ({}) =>{
           keepMounted: true, // Better open performance on mobile.
         }}
       >
-        <Menu/>
-      </Drawer>
-      </div>
-    );
-  
-}
 
+        <Menu />
+        
+      </Drawer>
+
+    </div>
+
+    );
+}
 export default NavBar;

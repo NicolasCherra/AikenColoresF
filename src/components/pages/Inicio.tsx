@@ -49,30 +49,35 @@ const Inicio: React.FC<any> = ({}) => {
   const ponerProductos = () => {
     productsHTML.length=0
     let ultimoItem = cantidadDeElementosPorPaginacion;
-    let i = 0;    
+    let i = 0;
+    //Parchiando las paginas
     if (page > 1) {
       page > 2 ? i=cantidadDeElementosPorPaginacion*(page-1) : i=cantidadDeElementosPorPaginacion;      
-      if (page == cantidadDePaginas){
+      if (page == cantidadDePaginas) {
         ultimoItem = products.length;
       } else {
         ultimoItem=(cantidadDeElementosPorPaginacion * page)
       }        
+    }else if (products.length < cantidadDeElementosPorPaginacion) {
+      ultimoItem = products.length;
     }
-    
+    //
     for (i; i < ultimoItem; i++) {            
       productsHTML.push(
         <Grid item xs={12} sm={12} md={6} lg={3} key={i}>
+
           <Producto
             nombreProducto={products[i].nombre}
             imagen={products[i].imagenProducto}
-            _id={products[i]._id} />
+            _id={products[i]._id}
+          />
+
         </Grid>
       );
     } 
-    
   }
   
-  if (products.length > 0) {
+  if (products.length > 0 && souvenirsObj != undefined) {
     ponerProductos();
   }
 
@@ -95,11 +100,18 @@ const Inicio: React.FC<any> = ({}) => {
 
         {productsHTML.length > 0 ? productsHTML : cargando}
         
+
+        
+
       </Grid>
 
-      <Pagination count={cantidadDePaginas}  onChange={handleChangePage} color="secondary" />
-
-      </div>
+      <Pagination
+        count={cantidadDePaginas}
+        onChange={handleChangePage}
+        color="secondary"
+        className={classes.pagination}
+      />
+    </div>
   );
 }
 export default Inicio;

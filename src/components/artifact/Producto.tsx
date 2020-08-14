@@ -26,12 +26,32 @@ const Producto: React.FC<Props> = ({nombreProducto,imagen,_id}) =>{
 
       </CardActionArea>
       
+      <CardContent>
+
+        <Typography gutterBottom variant="h5" component="h2" align="center">
+          {nombreProducto}
+        </Typography>    
+      
+      </CardContent>
+
       <CardActions className={classes.productoContenedorBotones}>
         
-        <Button size="small" variant="contained" color="secondary" className={classes.productosBotonSecundario} >
+        <Button
+          size="small"
+          variant="contained"
+          color="secondary"
+          className={classes.productosBotonSecundario}
+        >
           Descripcion
         </Button>
-        <Button size="small" variant="contained" color="primary" href={art} className={classes.productosBotonPrimario}>
+
+        <Button
+          size="small"
+          variant="contained"
+          color="primary"
+          href={art}
+          className={classes.productosBotonPrimario}
+        >
           Hacer Pedido
         </Button>
 

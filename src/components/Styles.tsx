@@ -11,9 +11,6 @@ const useStyle = makeStyles({
     position: "absolute",
     left: "17%",
     top: "21%",
-    borderWidth: "2px",
-    borderColor: "black",
-    borderStyle:"double",
     [Tema.breakpoints.down('sm')]: {
       left: "2%",
       width:"22em"
@@ -48,9 +45,6 @@ const useStyle = makeStyles({
     }
   },
   Header: {
-    borderWidth: "2px",
-    borderColor: "black",
-    borderStyle: "double",
     position: "absolute",
     height:"11em",
     top: "0%",
@@ -91,26 +85,25 @@ const useStyle = makeStyles({
   Menu: {
     display: 'flex',
     position: "absolute",
-    borderWidth: "2px",
-    borderColor: "black",
-    borderStyle:"double",
-    top:"23%"
+    top:"23%",
+    [Tema.breakpoints.down('sm')]: {      
+      top:"5%"
+    }
   },
   drawerPaper: {
-    width: drawerWidth,
+    width: drawerWidth
   },
   menu: {
     color: "#fff"
   },
   producto: {
     maxWidth: 350,
-    borderWidth: 2,
-    borderStyle:"double",
     [Tema.breakpoints.down('sm')]: {      
       maxWidth: 300
     }
   },
   productoImagen: {
+    borderRadius: 20,
     height: 250,
   },
   productoContenedorBotones: {
@@ -136,23 +129,34 @@ const useStyle = makeStyles({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    margin:"2em"
+    margin: "2em"    
   },
   articuloImagen: {
     borderRadius: "10px",
     borderWidth: "10px",
     borderColor: "cornflowerblue",
     borderStyle: "ridge",
-    width:"600px"
+    width: "600px",
+    [Tema.breakpoints.down('sm')]: {      
+      width: 350
+    }
+  },
+  pagination: {
+    position: "absolute",
+    left: "42%",
+    marginTop: "4em",
+    [Tema.breakpoints.down('sm')]: {      
+      left: "26%"
+    }
   },
   Footer: {
     position: "absolute",
     width: "100%",
     height:"10em",
     backgroundColor: "black",
-    bottom: "-70%",
+    bottom: "-110%",
     [Tema.breakpoints.down('sm')]: {      
-      bottom: "calc(-1em*18*9)"
+      bottom: "-216em"
     }
   }
   
