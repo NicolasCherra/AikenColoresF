@@ -90,6 +90,12 @@ const useStyle = makeStyles({
       top:"5%"
     }
   },
+  MenuBotones: {
+    transition: "1s",
+    "&:hover": {
+      transform:"scale(1.2)"
+    }
+  },
   drawerPaper: {
     width: drawerWidth
   },
@@ -137,9 +143,13 @@ const useStyle = makeStyles({
     borderColor: "cornflowerblue",
     borderStyle: "ridge",
     width: "600px",
+    transition:"1s",
     [Tema.breakpoints.down('sm')]: {      
       width: 350
-    }
+    },
+    "&:hover":{
+      transform: "scale(1.7)"
+    },
   },
   pagination: {
     position: "absolute",
@@ -148,6 +158,9 @@ const useStyle = makeStyles({
     [Tema.breakpoints.down('sm')]: {      
       left: "26%"
     }
+  },
+  TransicionPage: {
+    
   },
   Footer: {
     position: "absolute",

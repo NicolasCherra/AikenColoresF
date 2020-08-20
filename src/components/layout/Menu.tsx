@@ -21,7 +21,7 @@ const Menu: React.FC<any> = ({ }) => {
   return (
     <div className={classes.Menu}>
         <List>
-        <ListItem button onClick={home}  color="primary">
+        <ListItem button onClick={home} className={classes.MenuBotones}  color="primary">
             <ListItemIcon>
               <HomeIcon color="primary"/>
               <ListItemText primary="Inicio" color="secundary" />
@@ -30,7 +30,7 @@ const Menu: React.FC<any> = ({ }) => {
 
           <Divider/>
           
-          <ListItem button onClick={catalogo} >
+          <ListItem button onClick={catalogo} className={classes.MenuBotones}>
             <ListItemIcon>
               <InsertPhotoIcon />
               <ListItemText primary="Catalogo" />
@@ -39,24 +39,24 @@ const Menu: React.FC<any> = ({ }) => {
           
           <Divider/> 
           
-          <ListItem button>
+          <ListItem button className={classes.MenuBotones}>
               <ListItemText primary="Souvenir" />
           </ListItem>
                     
           <Divider/> 
           
-          <ListItem button>
+          <ListItem button className={classes.MenuBotones}>
               <ListItemText primary="Personalizaciones" />
           </ListItem>
                     
           <Divider/> 
           
-          <ListItem button>
+          <ListItem button className={classes.MenuBotones}>
               <ListItemText primary="Contacto" />
           </ListItem>
           
         </List>
       </div>
-    );
+  );
 }
 export default Menu;

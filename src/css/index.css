@@ -18,3 +18,26 @@ body::-webkit-scrollbar-track{
     background: rgb(157, 150, 255);
     border-radius: 50px;
 }
+
+.container {
+  height: 100%;
+}
+.fade-enter,
+.fade-appear {
+  opacity: 0;
+}
+
+.fade-enter.fade-enter-active,
+.fade-appear.fade-appear-active {
+  opacity: 1;
+  transition: opacity 2000ms; /* cuando vemos*/
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit.fade-exit-active {
+  opacity: 0;  
+  transition: opacity 2000ms;
+}

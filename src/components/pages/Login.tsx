@@ -8,7 +8,7 @@ const Login: React.FC<any> = ({ }) => {
     const { name, value } = e.target;
     console.log(value);
   };
-
+  
     return (
       <React.Fragment>
         <h2>Entrar</h2>

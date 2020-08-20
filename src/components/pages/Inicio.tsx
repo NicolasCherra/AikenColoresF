@@ -9,9 +9,11 @@ import { getSouvenirs } from '../redux/Ducks';
 import { ProductosRD, ProductoRD, IStateRedux } from '../redux/types';
 import useStyle from '../Styles';
 import Producto from '../artifact/Producto';
+import Transition from '../Transition';
 
 const Inicio: React.FC<any> = ({}) => {
   const classes = useStyle();
+  //const transition = Transition();
   const dispatch = useDispatch();
   let souvenirsObj = useSelector((store: any) => store.productos.souvenirs[0]);
   let cargando = <Typography className={classes.inicioEstadoCargandoBD} variant="h6" >Cargando...</Typography>;
@@ -23,6 +25,7 @@ const Inicio: React.FC<any> = ({}) => {
   let cantidadDePaginas:number =Math.ceil(products.length/cantidadDeElementosPorPaginacion);
 
   React.useEffect(() => {
+    Transition;
     traer(); // para mejor permormance hacer thunk
     pasar();
   }, [cargo]);
