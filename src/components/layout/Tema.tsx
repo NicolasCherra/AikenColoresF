@@ -22,6 +22,14 @@ const Tema = createMuiTheme({
       dark: '#01579b',
       contrastText: '#fff',
     },
-  }
+    
+  },
+  typography: {
+    "fontFamily": `"Caveat", cursive`,
+    "fontSize": 14,
+    "fontWeightLight": 300,
+    "fontWeightRegular": 400,
+    "fontWeightMedium": 500
+   }
 });
 export default Tema;

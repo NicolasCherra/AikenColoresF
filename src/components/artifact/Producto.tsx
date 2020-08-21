@@ -13,7 +13,14 @@ interface Props {
 }
 const Producto: React.FC<Props> = ({nombreProducto,imagen,_id}) =>{
   const classes = useStyle();
-  const art = "articulo/"+_id;
+  var touch = new Audio('../../../sonidos/touch.mp3');
+  var mouseEnter = new Audio('../../../sonidos/mouseEnterBoton.mp3');
+
+  const art = () => {
+    touch.play();
+    setTimeout(()=>window.location.href = "articulo/" + _id, 500);
+  }
+
   return (
     <Card className={classes.producto}>
 
@@ -40,6 +47,7 @@ const Producto: React.FC<Props> = ({nombreProducto,imagen,_id}) =>{
           size="small"
           variant="contained"
           color="secondary"
+          onMouseEnter={()=> mouseEnter.play()}
           className={classes.productosBotonSecundario}
         >
           Descripcion
@@ -49,7 +57,8 @@ const Producto: React.FC<Props> = ({nombreProducto,imagen,_id}) =>{
           size="small"
           variant="contained"
           color="primary"
-          href={art}
+          onClick={art}
+          onMouseEnter={()=> mouseEnter.play()}
           className={classes.productosBotonPrimario}
         >
           Hacer Pedido

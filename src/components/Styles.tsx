@@ -68,19 +68,29 @@ const useStyle = makeStyles({
     borderWidth: "10px",
     borderColor: "cornflowerblue",
     borderStyle: "ridge",
+    transition:"1s",
     "&:hover, &:focus": {
       backgroundColor: "#ff0",
       borderRadius: 50,
-      fontSize:25
+      fontSize: 25,
+      trasnform:"scale(1.9)"
     }
   },
   headerCuenta: {
     position: "absolute",
-    left: "70%"
+    left: "70%",
+    transition: "1s",
+    "&:hover": {      
+      trasnform:"scale(1.2)"
+    }
   },
   headerCarrito: {
     position: "absolute",
-    left: "90%"
+    left: "90%",
+    transition: "1s",
+    "&:hover": {      
+      trasnform:"scale(1.2)"
+    }
   },
   Menu: {
     display: 'flex',
@@ -93,7 +103,9 @@ const useStyle = makeStyles({
   MenuBotones: {
     transition: "1s",
     "&:hover": {
-      transform:"scale(1.2)"
+      transform: "scale(1.2)",
+      color: "black",
+      cursor:"url('../../imagenes/cursorPointer.png'),pointer"
     }
   },
   drawerPaper: {
@@ -119,10 +131,20 @@ const useStyle = makeStyles({
     flexWrap: "wrap"
   },
   productosBotonPrimario: {
-   marginTop: 10
+    marginTop: 10,
+    transition: "1s",
+    "&:hover": {
+      transform: "scale(1.2)",
+      cursor:"url('../../imagenes/cursorPointer.png'),pointer"
+    }
   },
   productosBotonSecundario: {
-    marginTop: 10
+    marginTop: 10,
+    transition: "1s",
+    "&:hover": {
+      transform: "scale(1.2)",
+      cursor:"url('../../imagenes/cursorPointer.png'),pointer"
+    }
   },
   login: {
     

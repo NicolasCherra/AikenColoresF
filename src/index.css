@@ -1,7 +1,15 @@
 * {
 	margin: 0;
 	padding: 0;
-	box-sizing: border-box;
+  box-sizing: border-box;
+  cursor:url("../imagenes/cursorAuto.png"),auto;
+  font-family: 'Caveat', cursive;
+}
+a:hover{
+  cursor:url("../imagenes/cursorPointer.png"),pointer;
+}
+button:hover{
+  cursor:url("../imagenes/cursorPointer.png"),pointer;
 }
 body::-webkit-scrollbar{
     background: rgb(0, 0, 0)

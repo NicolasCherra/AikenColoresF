@@ -28,7 +28,7 @@ module.exports={
                 loader: 'source-map-loader'
             },
             {
-                test: /\.(png|jpe?g|gif|jp2|webp)$/,
+                test: /\.(png|jpe?g|gif|jp2|webp|mp3)$/,
                 loader: 'file-loader',
                 options: {
                     name: 'imagenes/[name].[ext]'

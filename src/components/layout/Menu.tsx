@@ -11,17 +11,25 @@ import InsertPhotoIcon from '@material-ui/icons/InsertPhoto';
 import useStyle from '../Styles';
 
 const Menu: React.FC<any> = ({ }) => {
-  const home = () => {
-    window.location.href ="/";
-  }
-  const catalogo = () => {
-    window.location.href ="/catalogo";
-  }
   const classes = useStyle();
+  var touch = new Audio('../../../sonidos/touch.mp3');
+  var mouseEnter = new Audio('../../../sonidos/mouseEnterBoton.mp3');
+  
+  const home = () => {
+    touch.play();
+    setTimeout(() => window.location.href = "/", 500);
+  }
+
+  const catalogo = () => {
+    touch.play();
+    setTimeout(() => window.location.href = "/catalogo", 500);
+  }
+
+  
   return (
     <div className={classes.Menu}>
         <List>
-        <ListItem button onClick={home} className={classes.MenuBotones}  color="primary">
+        <ListItem button onClick={home} onMouseEnter={()=> mouseEnter.play()} className={classes.MenuBotones}  color="primary">
             <ListItemIcon>
               <HomeIcon color="primary"/>
               <ListItemText primary="Inicio" color="secundary" />
@@ -30,7 +38,7 @@ const Menu: React.FC<any> = ({ }) => {
 
           <Divider/>
           
-          <ListItem button onClick={catalogo} className={classes.MenuBotones}>
+          <ListItem button onClick={catalogo} onMouseEnter={()=> mouseEnter.play()} className={classes.MenuBotones}>
             <ListItemIcon>
               <InsertPhotoIcon />
               <ListItemText primary="Catalogo" />
@@ -39,19 +47,19 @@ const Menu: React.FC<any> = ({ }) => {
           
           <Divider/> 
           
-          <ListItem button className={classes.MenuBotones}>
+          <ListItem button className={classes.MenuBotones} onMouseEnter={()=> mouseEnter.play()}>
               <ListItemText primary="Souvenir" />
           </ListItem>
                     
           <Divider/> 
           
-          <ListItem button className={classes.MenuBotones}>
+          <ListItem button className={classes.MenuBotones} onMouseEnter={()=> mouseEnter.play()}>
               <ListItemText primary="Personalizaciones" />
           </ListItem>
                     
           <Divider/> 
           
-          <ListItem button className={classes.MenuBotones}>
+          <ListItem button className={classes.MenuBotones} onMouseEnter={()=> mouseEnter.play()}>
               <ListItemText primary="Contacto" />
           </ListItem>
           

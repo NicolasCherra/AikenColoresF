@@ -7,9 +7,12 @@ import useStyle from '../Styles';
 const Header: React.FC<any> = ({ }) => {
   const classes = useStyle();
   const estadoLogin = "Registrarse/Entrar";
+  var touch = new Audio('../../../sonidos/touch.mp3');
+  var mouseEnter = new Audio('../../../sonidos/mouseEnterBoton.mp3');
 
   const login = () => {
-    window.location.href ="/entrar";
+    touch.play();
+    setTimeout(() => window.location.href = "/entrar",500);
   }  
   
   return (
@@ -25,11 +28,13 @@ const Header: React.FC<any> = ({ }) => {
       
       <Button
         onClick={login}
+        onMouseEnter={()=> mouseEnter.play()}
         className={classes.headerCuenta}
         startIcon={<AccountCircleIcon />}
       >{estadoLogin}</Button>
 
       <Button
+        onMouseEnter={()=> mouseEnter.play()}
         className={classes.headerCarrito}
         startIcon={<ShoppingCartIcon />}
       >Carrito</Button>
